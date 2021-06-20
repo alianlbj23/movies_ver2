@@ -1,6 +1,6 @@
 
 {% extends "base.html" %}
-{% block title %}國際城市人口排行{% endblock %}
+{% block title %}電影排行{% endblock %}
 {% block content %}
 
 <h1 class="display-6"><font color="#FFFFF" ><strong>2021前三十名排行</strong></font></h1>
@@ -74,12 +74,12 @@ var myChart = new Chart(ctx, {
 <h1 class="display-6"><font color="#FFFFF" ><strong>2021所有排行</strong></font></h1>
 
   
-<table class='table table-striped table-bordered'>
+<table class='table table-striped table-Dark table-bordered  caption-top'>
     <tr>
           <td width="10%" align="center" valign="center"><span style="color:white;font-size:20px;">排名</span></td>
           <td width="10%" align="center" valign="center"><span style="color:white;font-size:20px;">國別地區</span></td>
           <td width="40%" align="center" valign="center"><span style="color:white;font-size:20px;">片名</span></td>
-          <td width="25%" align="center" valign="center"><span style="color:white;font-size:20px;">上印日期</span></td>
+          <td width="25%" align="center" valign="center"><span style="color:white;font-size:20px;">上映日期</span></td>
           <td width="25%" align="center" valign="center"><span style="color:white;font-size:20px;">申請人</span></td>
           <td width="25%" align="center" valign="center"><span style="color:white;font-size:20px;">累計銷售票數</span></td>   
           <td width="25%" align="center" valign="center"><span style="color:white;font-size:20px;">累計銷售金額</span></td>  
@@ -91,28 +91,15 @@ var myChart = new Chart(ctx, {
         <td width="25%" align="center" valign="center"><span style="color:white;font-size:20px;">{{item.name}}</span></td>
         <td width="25%" align="center" valign="center"><span style="color:white;font-size:20px;">{{item.dates}}</span></td>
         <td>
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >
-                資訊
-              </button>
-              
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">申請人</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      {{item.applicant}}
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="dropdown">
+            <a class="btn btn-success dropdown-toggle"  role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              資訊
+            </a>
+          
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" >{{item.applicant}}</a></li>
+            </ul>
+          </div>
         </td>
         <td width="25%" align="center" valign="center"><span style="color:white;font-size:20px;">{{item.tickets}}</span></td>
         <td width="25%" align="center" valign="center"><span style="color:white;font-size:20px;">{{item.Total_Sale_Figure}}</span></td>
