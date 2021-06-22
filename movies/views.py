@@ -19,6 +19,13 @@ items_2020_data = Tawain_movies_rank_2020.objects.filter(rank__lt=31)
 items_2019_data = Tawain_movies_rank_2019.objects.filter(rank__lt=31)
 items_2018_data = Tawain_movies_rank_2018.objects.filter(rank__lt=31)
 items_2017_data = Tawain_movies_rank_2017.objects.filter(rank__lt=31)
+
+items_2017_data_ticket = Tawain_movies_rank_2017.objects.filter(rank__lt=11)
+items_2018_data_ticket = Tawain_movies_rank_2018.objects.filter(rank__lt=11)
+items_2019_data_ticket = Tawain_movies_rank_2019.objects.filter(rank__lt=11)
+items_2020_data_ticket = Tawain_movies_rank_2020.objects.filter(rank__lt=11)
+items_2021_data_ticket = Tawain_movies_rank_2021.objects.filter(rank__lt=11)
+
 def index(request):
 	title_name = "博雅通識小專題:電影資料分析"
 	return render(request, 'index.html', locals())
@@ -27,26 +34,32 @@ def index(request):
 def Tawain_movies_rank_2021_show(request):
     items = items_2021_data
     items2 = Tawain_movies_rank_2021.objects.all()
+    items_ticket = items_2021_data_ticket
     return render(request, 'Tawain_movies_rank_2021.html', locals())
 
 def Tawain_movies_rank_2020_show(request):
     items = items_2020_data
     items2 = Tawain_movies_rank_2020.objects.all()
+    items_ticket = items_2020_data_ticket
     return render(request, 'Tawain_movies_rank_2020.html', locals())
 
 def Tawain_movies_rank_2019_show(request):
     items = items_2019_data
     items2 = Tawain_movies_rank_2019.objects.all()
+    items_ticket = items_2019_data_ticket
     return render(request, 'Tawain_movies_rank_2019.html', locals())
 
 def Tawain_movies_rank_2018_show(request):
     items = items_2018_data
     items2 = Tawain_movies_rank_2018.objects.all()
+    items_ticket = items_2018_data_ticket 
+
     return render(request, 'Tawain_movies_rank_2018.html', locals())
 
 def Tawain_movies_rank_2017_show(request):
     items = items_2017_data
     items2 = Tawain_movies_rank_2017.objects.all()
+    items_ticket = items_2017_data_ticket 
     return render(request, 'Tawain_movies_rank_2017.html', locals())
 #-------------------------------------------------
 def japan(request):
@@ -136,6 +149,8 @@ def Box_office_opening_first_week_tw_local(request):
 def First_day_box_office_tw_local(request):
     items = First_day_box_office_local.objects.all()
     return render(request, 'First_day_box_office_tw_local.html', locals())
+
+
 
 #-------------------------------------------------
 
